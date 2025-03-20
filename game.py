@@ -1,6 +1,6 @@
 import random
 from utils import free_draw_probs, paid_draw_probs, first_draw_probs
-from utils import COSTS, REWARDS, player_actions
+from utils import COSTS, REWARDS, MAX_LEVEL, player_actions
 
 def play_turn(draw = 0):
     if draw == 0:
@@ -51,7 +51,9 @@ def play_until_level(target = 8, player = 0):
         if level <= 0:
             total_reward += REWARDS[0]
             level = 0
-            
-        history.append(level)
+        level = max(MAX_LEVEL, level)
 
+        history.append(level)
+    
+    total_reward += REWARDS[level]
     return history, total_cost, total_reward
