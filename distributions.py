@@ -13,9 +13,9 @@ for player in players[0]:
 
 level_7_np = np.array(level_7)
 level_7_dist = np.mean(level_7_np, axis=0)
-print("Level 7 Best Actions")
+print("Target 7 Best Actions")
 for i in range(len(level_7_dist)):
-    print(f"Level {i}: {level_7_dist[i]}")
+    print(f"- Level {i+1}: {level_7_dist[i]}")
 
 print("")
 
@@ -26,6 +26,6 @@ for player in players[1]:
 
 level_8_np = np.array(level_8)
 level_8_dist = np.mean(level_8_np, axis=0)
-print("Level 8 Best Actions")
+print("Target 8 Best Actions")
 for i in range(len(level_8_dist)):
-    print(f"Level {i}: {level_8_dist[i]}")
+    print(f"- Level {i+1}: {level_8_dist[i]}")
