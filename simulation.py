@@ -1,7 +1,6 @@
 from game import play_until_level
 import pandas as pd
 import numpy as np
-import sys
 
 players_stats = []
 for i in range(0, 8):
@@ -29,7 +28,6 @@ def simulate_target(target, iterations = 1000):
         players_stats[target - 1][player] = (player_total_costs, player_total_rewards)
         target_results.append(player_results)
         print(f"{target}:{player} completed.", flush=True)
-        sys.stdout.flush()
     
     print(f"Target {target} completed.")
     return target_results
