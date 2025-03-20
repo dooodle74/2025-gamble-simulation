@@ -15,7 +15,7 @@ def play_turn(draw = 0):
     result = random.choices(items, weights)[0]
     return result
 
-def play_until_level(target = 8, player = 0):
+def play_until_level(target = 8, player = 0, max_iterations = 1000):
     actions = player_actions(player)
     failsafe_trigger = 2
 
@@ -26,7 +26,9 @@ def play_until_level(target = 8, player = 0):
     total_cost = 0
     total_reward = 0
 
-    while level < target:        
+    iterations = 0
+    while level < target and iterations < max_iterations:
+        iterations += 1        
         if level == 0:
             total_cost += COSTS[0]
             draw_result = play_turn(2)
