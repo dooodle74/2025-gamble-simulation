@@ -26,9 +26,9 @@ def play_until_level(target = 8, player = 0):
     total_cost = 0
     total_reward = 0
 
-    while level < target:
-        total_cost += COSTS[level]
+    while level < target:        
         if level == 0:
+            total_cost += COSTS[0]
             draw_result = play_turn(2)
         else:
             action = actions[level]
@@ -36,6 +36,7 @@ def play_until_level(target = 8, player = 0):
                 draw_result = play_turn(0)
             
             elif action == 1:
+                total_cost += COSTS[level]
                 if failsafe >= failsafe_trigger:
                     draw_result = play_turn(2)
                 else:
@@ -51,7 +52,7 @@ def play_until_level(target = 8, player = 0):
         if level <= 0:
             total_reward += REWARDS[0]
             level = 0
-        level = max(MAX_LEVEL, level)
+        level = min(MAX_LEVEL, level)
 
         history.append(level)
     
